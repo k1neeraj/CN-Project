@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
+    <link rel="styleSheet" href="css/to-do.css">
+</head>
+<body>
+    <h1>
+        TODO App
+    </h1>
+    <!-- input form for task which take description, category of task and due date to task -->
+    <form action="/add-task" method="post">
+    <div id="input-task" class="sections">
+        <p >Description</p>
+        <input type="text" placeholder="What do you want to do" id="description" name="task">
+    </div>
+    <div id="details" class="sections">
+        <div id="category">
+            <p>Category</p>
+            <select id="list" name="category">
+                <option value="" disabled selected>Select your option</option>
+                <option>Personal</option>
+                <option>School</option>
+                <option>Work</option>
+                <option>Daily</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div id="date">   
+            <p>Due Date</p>
+            <input type="date" id="date-input" name="due">
+        </div>
+    </div>
+    <div id="buttons" class="sections">
+        <button class="btn" id="add" type="submit">
+            <i class="fas fa-solid fa-plus"></i>
+            Add Task
+        </button>    
+    </div>
+    </form>
+
+    <!-- display for tasks -->
+    <div class="sections" id="display">
+        <!-- home controller will render all task through this for loop  -->
+        <%for(let i of tasks_list) { %>  
+            <div class="tasks">
+                
+                <div class="input-lable">
+                    
+                    <form action="/change-status" method="post">
+                        <input type="hidden" name="hidden" value="<%=i._id%>" >
+                    <% if(i.done){%>
+                        <input type="checkbox"   class="custom-checkbox" onChange="this.form.submit()" checked>
+                    <%}else{%>
+                        <input type="checkbox"   class="custom-checkbox" onChange="this.form.submit()" >
+                    <%}%>
+                    <label>
+                        <%=i.task%>
+                        <br>
+                        <span style="margin-left: 22px;">
+                            <i class="fas fa-solid fa-calendar"></i>
+                            <%=i.due%>
+                        </span>
+                    </label>
+                </form>
+                </div>
+            
+                <div class="card-btn">
+                    <% if( i.category == 'Personal'){%>
+                        <div class="card" style="background-color: #FFDB58;">
+                            <%=i.category%>
+                        </div>  
+                    <%}%>
+                    <% if( i.category == 'School'){%>
+                        <div class="card" style="background-color: blue;">
+                            <%=i.category%>
+                        </div>  
+                    <%}%>   
+                    <% if( i.category == 'Work'){%>
+                        <div class="card" style="background-color:brown;">
+                            <%=i.category%>
+                        </div>  
+                    <%}%>
+                    <% if( i.category == 'Daily'){%>
+                        <div class="card" style="background-color:green;">
+                            <%=i.category%>
+                        </div>  
+                    <%}%> 
+                    <% if( i.category == 'Other'){%>
+                        <div class="card" style="background-color: pink;">
+                            <%=i.category%>
+                        </div>  
+                    <%}%>
+                
+                    <a href="/remove-task/?id=<%=i._id%>" id="delete-btn">
+                        <i class="fas fa-solid fa-trash"></i>
+                    </a>  
+                    
+                </div>
+                
+            </div>    
+        <%}%>
+    
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/to-do.js"></script>
+</body>
+</html>

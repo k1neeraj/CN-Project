@@ -1,0 +1,148 @@
+body {
+    margin: 0px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-family: sans-serif;
+}
+
+.sections {
+    border: 1px solid black;
+    width: 75%;
+    margin: auto;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#description {
+    height: 40px;
+    margin-top: -9px;
+    border: none;
+    width: 99%;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+#details {
+    display: flex;
+    height: auto;
+}
+
+#category {
+    width: 50%;
+}
+
+#category p {
+    margin-bottom: 0px;
+}
+
+#list {
+    width: 95%;
+    border: none;
+    font-size: 1rem;
+    height: 30px;
+    margin-top: 2px;
+    outline: none;
+}
+
+#date {
+    width: 50%;
+
+}
+
+#date p {
+    margin-bottom: 0px;
+}
+
+#date-input {
+    width: 95%;
+    border: none;
+    outline: none;
+    margin-top: 2px;
+    font-size: 1rem;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    width: 20%;
+    height: 60px;
+    margin: 4px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#add {
+    background-color: black;
+    color: white;
+}
+
+#remove {
+    background-color: red;
+    color: white;
+}
+
+
+.tasks {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    align-items: inherit;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.tasks:hover {
+    background: #f3f3f3;
+}
+
+.input-lable {
+    width: 48%;
+    display: inline-block;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.tasks label {
+    position: relative;
+    cursor: pointer;
+}
+
+
+.tasks input:checked+label:before {
+    background: #0079bf;
+}
+
+.card-btn {
+    vertical-align: top;
+    width: 48%;
+    display: inline-flex;
+    height: 60px;
+    padding: 5px;
+    box-sizing: border-box;
+    justify-content: flex-end;
+
+    align-items: center;
+}
+
+.card {
+    width: 25%;
+    text-align: center;
+    padding: 1.2%;
+    display: inline-block;
+    height: 35px;
+    box-sizing: border-box;
+    margin: 10px;
+    color:white;
+    font-size:1rem;
+}
